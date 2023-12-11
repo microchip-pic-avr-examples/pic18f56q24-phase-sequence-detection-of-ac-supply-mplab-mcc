@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://www.netbeans.org/ns/project/1">
+    <type>com.microchip.mplab.nbide.embedded.makeproject</type>
+    <configuration>
+        <data xmlns="http://www.netbeans.org/ns/make-project/1">
+            <name>pic18f56q24-phase-sequence-detection-of-ac-supply-mplab-mcc</name>
+            <name>pic18f56q24-phase-sequence-detection-of-ac-supply-mplab</name>
+            <name>pic18f56q24-spi-host-main</name>
+            <name>pic18f56q24-spi-host</name>
+            <creation-uuid>e1406025-5788-45a6-9f0d-ba83f4d7e6a9</creation-uuid>
+            <make-project-type>0</make-project-type>
+            <sourceEncoding>ISO-8859-1</sourceEncoding>
+            <make-dep-projects/>
+            <sourceRootList/>
+            <confList>
+                <confElem>
+                    <name>default</name>
+                    <type>2</type>
+                </confElem>
+            </confList>
+            <formatting>
+                <project-formatting-style>false</project-formatting-style>
+            </formatting>
+        </data>
+    </configuration>
+</project>
