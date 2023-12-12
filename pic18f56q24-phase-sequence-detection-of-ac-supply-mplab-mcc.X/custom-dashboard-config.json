@@ -1,0 +1,469 @@
+{
+    "scheme": "mplab.datavisualizer.dashboard",
+    "version": 1.1,
+    "settings": {
+        "widgets": {
+            "root": {
+                "type": "group",
+                "position": {
+                    "left": 0,
+                    "top": 0,
+                    "right": 0,
+                    "bottom": 0
+                },
+                "config": {
+                    "style": {},
+                    "children": [
+                        "signal-1",
+                        "signal-2",
+                        "label-1",
+                        "signal-3",
+                        "signal-4",
+                        "label-2",
+                        "label-3",
+                        "label-4",
+                        "label-5",
+                        "label-6",
+                        "graph-1",
+                        "label-10",
+                        "radiogroup-1",
+                        "label-11",
+                        "label-12",
+                        "label-13",
+                        "segment-1",
+                        "label-7",
+                        "label-8"
+                    ]
+                }
+            },
+            "signal-1": {
+                "type": "signal",
+                "position": {
+                    "left": "69.609px",
+                    "top": "732.609px",
+                    "width": "25px",
+                    "height": "22px"
+                },
+                "config": {
+                    "onStyle": {
+                        "backgroundColor": "#00FF00"
+                    },
+                    "offStyle": {
+                        "backgroundColor": "#Ff0000"
+                    }
+                }
+            },
+            "signal-2": {
+                "type": "signal",
+                "position": {
+                    "left": "138.609px",
+                    "top": "732.609px",
+                    "width": "25px",
+                    "height": "22px"
+                },
+                "config": {
+                    "onStyle": {
+                        "backgroundColor": "#00FF00"
+                    },
+                    "offStyle": {
+                        "backgroundColor": "#Ff0000"
+                    }
+                }
+            },
+            "label-1": {
+                "type": "label",
+                "position": {
+                    "left": "43.6094px",
+                    "top": "708.609px"
+                },
+                "config": {
+                    "style": {
+                        "fontWeight": "normal",
+                        "fontStyle": "normal",
+                        "alignItems": "flex-start",
+                        "textAlign": "left"
+                    },
+                    "label": {
+                        "value": "Phase Reversal"
+                    }
+                }
+            },
+            "signal-3": {
+                "type": "signal",
+                "position": {
+                    "left": "179.609px",
+                    "top": "732.609px",
+                    "width": "25px",
+                    "height": "22px"
+                },
+                "config": {
+                    "onStyle": {
+                        "backgroundColor": "#00FF00"
+                    },
+                    "offStyle": {
+                        "backgroundColor": "#Ff0000"
+                    }
+                }
+            },
+            "signal-4": {
+                "type": "signal",
+                "position": {
+                    "left": "219.609px",
+                    "top": "732.609px",
+                    "width": "25px",
+                    "height": "22px"
+                },
+                "config": {
+                    "onStyle": {
+                        "backgroundColor": "#00FF00"
+                    },
+                    "offStyle": {
+                        "backgroundColor": "#Ff0000"
+                    }
+                }
+            },
+            "label-2": {
+                "type": "label",
+                "position": {
+                    "left": "141.609px",
+                    "top": "708.609px",
+                    "width": "19px",
+                    "height": "15px"
+                },
+                "config": {
+                    "style": {
+                        "fontWeight": "normal",
+                        "fontStyle": "normal",
+                        "alignItems": "flex-start",
+                        "textAlign": "left"
+                    },
+                    "label": {
+                        "value": "L1"
+                    }
+                }
+            },
+            "label-3": {
+                "type": "label",
+                "position": {
+                    "left": "182.609px",
+                    "top": "708.609px"
+                },
+                "config": {
+                    "style": {
+                        "fontWeight": "normal",
+                        "fontStyle": "normal",
+                        "alignItems": "flex-start",
+                        "textAlign": "left"
+                    },
+                    "label": {
+                        "value": "L2"
+                    }
+                }
+            },
+            "label-4": {
+                "type": "label",
+                "position": {
+                    "left": "223.609px",
+                    "top": "708.609px"
+                },
+                "config": {
+                    "style": {
+                        "fontWeight": "normal",
+                        "fontStyle": "normal",
+                        "alignItems": "flex-start",
+                        "textAlign": "left"
+                    },
+                    "label": {
+                        "value": "L3"
+                    }
+                }
+            },
+            "label-5": {
+                "type": "label",
+                "position": {
+                    "left": "163.609px",
+                    "top": "690.609px"
+                },
+                "config": {
+                    "style": {
+                        "fontWeight": "normal",
+                        "fontStyle": "normal",
+                        "alignItems": "flex-start",
+                        "textAlign": "left"
+                    },
+                    "label": {
+                        "value": "Phase Loss"
+                    }
+                }
+            },
+            "label-6": {
+                "type": "label",
+                "position": {
+                    "left": "267.609px",
+                    "top": "708.609px"
+                },
+                "config": {
+                    "style": {
+                        "fontWeight": "normal",
+                        "fontStyle": "normal",
+                        "alignItems": "flex-start",
+                        "textAlign": "left"
+                    },
+                    "label": {
+                        "value": "Frequency"
+                    }
+                }
+            },
+            "graph-1": {
+                "type": "graph",
+                "position": {
+                    "left": "38.608999999999995px",
+                    "top": "47.608999999999995px",
+                    "width": "1090px",
+                    "height": "413px"
+                },
+                "config": {
+                    "style": {},
+                    "graph": {
+                        "panel": {
+                            "cursors": [],
+                            "trackSizes": {
+                                "horizontal": [],
+                                "vertical": []
+                            }
+                        },
+                        "axisProps": {
+                            "154": {
+                                "type": "data",
+                                "scale": 172950.5408808247,
+                                "offset": -87840.60331059914,
+                                "active": false
+                            },
+                            "graph-1": {
+                                "type": "time",
+                                "scale": 0.2061731110582642,
+                                "offset": 243.12863829360384,
+                                "active": false
+                            }
+                        },
+                        "axisPositions": {
+                            "154": {
+                                "orientation": "vertical",
+                                "track": 0,
+                                "alignment": "before",
+                                "order": 0
+                            },
+                            "graph-1": {
+                                "orientation": "horizontal",
+                                "track": 0,
+                                "alignment": "after",
+                                "order": 0
+                            }
+                        },
+                        "plotProps": {
+                            "155": {
+                                "sourceId": "decoder-8bc86040-9283-11ee-bc79-ad92dd3fe102-output$Signal-L1",
+                                "lineMode": "linear",
+                                "color": "#d13913"
+                            },
+                            "44252ea4-e427-41d6-86d4-bb2509b8cc68": {
+                                "sourceId": "decoder-8bc86040-9283-11ee-bc79-ad92dd3fe102-output$Signal-L2",
+                                "lineMode": "linear",
+                                "color": "#29a634"
+                            },
+                            "940f8306-9337-4a5b-84c4-6cc26fa15ead": {
+                                "sourceId": "decoder-8bc86040-9283-11ee-bc79-ad92dd3fe102-output$Signal-L3",
+                                "lineMode": "linear",
+                                "color": "#2965cc"
+                            }
+                        },
+                        "plotPositions": {
+                            "155": {
+                                "hAxes": [],
+                                "vAxes": [
+                                    "154"
+                                ]
+                            },
+                            "44252ea4-e427-41d6-86d4-bb2509b8cc68": {
+                                "hAxes": [],
+                                "vAxes": [
+                                    "154"
+                                ]
+                            },
+                            "940f8306-9337-4a5b-84c4-6cc26fa15ead": {
+                                "hAxes": [],
+                                "vAxes": [
+                                    "154"
+                                ]
+                            }
+                        },
+                        "activeDataAxisId": "154",
+                        "cursorProps": {},
+                        "inspector": {
+                            "enabled": false
+                        },
+                        "powerAnalysis": {
+                            "enabled": false
+                        },
+                        "prevColorChoiceIndex": 1
+                    }
+                }
+            },
+            "label-10": {
+                "type": "label",
+                "position": {
+                    "left": "402.609px",
+                    "top": "520.609px",
+                    "width": "737px",
+                    "height": "275px"
+                },
+                "config": {
+                    "style": {
+                        "fontWeight": "normal",
+                        "fontStyle": "normal",
+                        "alignItems": "flex-start",
+                        "textAlign": "left"
+                    },
+                    "label": {
+                        "value": "Steps for Demonstration :-\n\n1. In this dashboard there are two sections, one for obtaining the input from user as \"INPUT SIGNALS\" and one for observing the state of the signals as \"OUTPUT STATUS\".\n\n\n2. THe system starts with 50Hz frequency. For changing the frequency in-between 50Hz abd 60Hz, press the on-board switch after power-on.\n\n\n3. For phase loss demonstration click L1/L2/L3 and observe the Phase Loss on the graph.\n\n\n4. For phase reversal demonstration click PR and observe the Phase Reversal on the graph.\n\n\n5. After demonstrating any functionality click on RC for recovering the signals and making them in default state."
+                    }
+                }
+            },
+            "radiogroup-1": {
+                "type": "radiogroup",
+                "position": {
+                    "left": "85.609px",
+                    "top": "579.609px",
+                    "width": "216px",
+                    "height": "50px"
+                },
+                "config": {
+                    "style": {
+                        "fontWeight": "normal",
+                        "fontStyle": "normal"
+                    },
+                    "radiogroup": {
+                        "options": [],
+                        "values": "0:RC\n1:L1\n2:L2\n3:L3\n4:PR",
+                        "horizontal": true
+                    }
+                }
+            },
+            "label-11": {
+                "type": "label",
+                "position": {
+                    "left": "84.609px",
+                    "top": "567.609px"
+                },
+                "config": {
+                    "style": {
+                        "fontWeight": "normal",
+                        "fontStyle": "normal",
+                        "alignItems": "flex-start",
+                        "textAlign": "left"
+                    },
+                    "label": {
+                        "value": "Recovery"
+                    }
+                }
+            },
+            "label-12": {
+                "type": "label",
+                "position": {
+                    "left": "151.609px",
+                    "top": "567.609px"
+                },
+                "config": {
+                    "style": {
+                        "fontWeight": "normal",
+                        "fontStyle": "normal",
+                        "alignItems": "flex-start",
+                        "textAlign": "left"
+                    },
+                    "label": {
+                        "value": "Phase Loss"
+                    }
+                }
+            },
+            "label-13": {
+                "type": "label",
+                "position": {
+                    "left": "225.609px",
+                    "top": "567.609px"
+                },
+                "config": {
+                    "style": {
+                        "fontWeight": "normal",
+                        "fontStyle": "normal",
+                        "alignItems": "flex-start",
+                        "textAlign": "left"
+                    },
+                    "label": {
+                        "value": "Phase Reversal"
+                    }
+                }
+            },
+            "segment-1": {
+                "type": "segment",
+                "position": {
+                    "left": "279.609px",
+                    "top": "733.609px",
+                    "width": "30px",
+                    "height": "22px"
+                },
+                "config": {
+                    "style": {
+                        "fontWeight": "normal",
+                        "fontStyle": "normal",
+                        "alignItems": "center",
+                        "textAlign": "left",
+                        "fontFamily": "segment"
+                    },
+                    "segment": {
+                        "digits": 2,
+                        "base": 10
+                    }
+                }
+            },
+            "label-7": {
+                "type": "label",
+                "position": {
+                    "left": "114.609px",
+                    "top": "531.609px"
+                },
+                "config": {
+                    "style": {
+                        "fontWeight": "bold",
+                        "fontStyle": "normal",
+                        "alignItems": "flex-start",
+                        "textAlign": "left",
+                        "fontSize": "20px",
+                        "fontFamily": "inherit"
+                    },
+                    "label": {
+                        "value": "INPUT SIGNALS"
+                    }
+                }
+            },
+            "label-8": {
+                "type": "label",
+                "position": {
+                    "left": "105.609px",
+                    "top": "654.609px"
+                },
+                "config": {
+                    "style": {
+                        "fontWeight": "bold",
+                        "fontStyle": "normal",
+                        "alignItems": "flex-start",
+                        "textAlign": "left",
+                        "fontSize": "20px"
+                    },
+                    "label": {
+                        "value": "OUTPUT STATUS"
+                    }
+                }
+            }
+        }
+    }
+}
