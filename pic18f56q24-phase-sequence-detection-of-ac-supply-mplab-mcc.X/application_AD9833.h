@@ -46,12 +46,12 @@
 /*                                                                            */
 /******************************************************************************/
 #define ZERO_FREQ           (0)                              // Frequencies
-#define DEFAULT_FREQ1       (50)
-#define DEFAULT_FREQ2       (60)
+#define DEFAULT_FREQ_50Hz   (50)
+#define DEFAULT_FREQ_60Hz   (60)
 
-#define PHASE_SHIFT1        (0)                              // Phase Shifts
-#define PHASE_SHIFT2        (120)
-#define PHASE_SHIFT3        (240)
+#define PHASE_SHIFT_0Deg    (0)                              // Phase Shifts
+#define PHASE_SHIFT_120Deg  (120)
+#define PHASE_SHIFT_240Deg  (240)
 
 #define NUMBER_OF_SAMPLES_50Hz  (35)
 #define NUMBER_OF_SAMPLES_60Hz  (35)
@@ -160,7 +160,7 @@ void AD9833_chipSelect(uint8_t selAD9833, uint8_t level);
 void AD9833SetPhase(unsigned short reg, unsigned short val);
 
 /**
- * void AD9833SetFrequency(unsigned short reg, unsigned long val)
+ * void AD9833SetFrequency(unsigned short reg, uint32_t val)
  * 
  * @brief API to load the frequency value in to AD9833 frequency bit field of the register.
  * 
@@ -168,7 +168,7 @@ void AD9833SetPhase(unsigned short reg, unsigned short val);
  *        val - frequency value
  * @return None.
  */
-void AD9833SetFrequency(unsigned short reg, unsigned long val);
+void AD9833SetFrequency(unsigned short reg, uint32_t val);
 
 /**
  * void AD9833Setup(uint16_t freq, uint16_t phase, uint16_t type)

@@ -37,12 +37,7 @@
 #include <xc.h>
 #include "../zcd2.h"
 #include "../../system/system.h"
-
-extern volatile uint8_t ZCD_Int_flag[3];                    // Application variables 
-extern volatile uint8_t PhaseLossFlag[3];                   // For 3 ZCD solution (64 pin controller)	
-
-extern volatile uint8_t flagBSignal;
-extern volatile uint16_t timerCounterValue;
+#include "../../../application.h"
 
 /**
   Section: ZCD2 Module APIs
@@ -72,15 +67,8 @@ void ZCD2_ISR(void)
 {
     // Clear the ZCD2 interrupt flag
     PIR2bits.ZCD2IF = 0;
-     
-    if (ZCD_Int_flag[0] == 1)
-    {
-	    timerCounterValue  = TMR2_Read();
-        ZCD_Int_flag[0] = 0;
-    }
-    ZCD_Int_flag[1] = 1;
-    PhaseLossFlag[1] = 1;
-    flagBSignal = 0;
+    
+    ZCD2_UserInterruptHandler();
 }
 
 /**

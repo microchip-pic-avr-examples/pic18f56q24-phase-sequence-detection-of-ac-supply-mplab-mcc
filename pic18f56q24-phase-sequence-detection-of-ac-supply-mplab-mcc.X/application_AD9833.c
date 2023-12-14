@@ -10,6 +10,7 @@
 /*                               HEADER FILES                                 */
 /*                                                                            */
 /******************************************************************************/
+#include "application.h"
 #include "application_AD9833.h"
 #include "mcc_generated_files/system/system.h"
 
@@ -37,7 +38,7 @@ void AD9833Select(uint8_t selAD9833)
 
 void AD9833SetRegisterValue(unsigned short regValue)
 {
-	unsigned char data[5] = {0};	
+	unsigned char data[REGISTER_SIZE] = {0};	
 	
 	data[0] = (unsigned char)((regValue & 0xFF00) >> 8);
 	data[1] = (unsigned char)((regValue & 0x00FF) >> 0);
@@ -51,7 +52,7 @@ void AD9833SetRegisterValue(unsigned short regValue)
     AD9833_CS_HIGH
 }
 
-void AD9833SetFrequency(unsigned short reg, unsigned long val)
+void AD9833SetFrequency(unsigned short reg, uint32_t val)
 {
 	unsigned short freqHi = reg;
 	unsigned short freqLo = reg;

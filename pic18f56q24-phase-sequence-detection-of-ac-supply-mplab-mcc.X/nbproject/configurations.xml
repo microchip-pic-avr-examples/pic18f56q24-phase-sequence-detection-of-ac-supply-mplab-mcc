@@ -45,6 +45,8 @@
       <itemPath>application_AD9833.h</itemPath>
       <itemPath>application_AD5227.h</itemPath>
       <itemPath>application.h</itemPath>
+      <itemPath>datastreamer.h</itemPath>
+      <itemPath>phaseFeatures.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -105,6 +107,8 @@
       <itemPath>application_AD9833.c</itemPath>
       <itemPath>application_AD5227.c</itemPath>
       <itemPath>application.c</itemPath>
+      <itemPath>datastreamer.c</itemPath>
+      <itemPath>phaseFeatures.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

@@ -8,9 +8,13 @@
 /******************************************************************************/
 #include <xc.h>
 #include <math.h>
+#include <stdbool.h>
+#include <stdint.h>
 #include "mcc_generated_files/system/system.h"
 #include "application_AD5227.h"
 #include "application_AD9833.h"
+#include "datastreamer.h"
+#include "phaseFeatures.h"
 
 /******************************************************************************/
 /*                                                                            */
@@ -29,8 +33,13 @@
 /* APPLICATION BASED MACROS */
 #define EMPTY_BUFFER            (0)
 
+#define REGISTER_SIZE           (2)
+
 #define FLAG_SET                (1)
 #define FLAG_RESET              (0)
+
+#define COUNTER_SET             (1)
+#define COUNTER_RESET           (0)
 
 #define CHANNEL_B               (0)
 #define CHANNEL_G               (1)
@@ -43,13 +52,23 @@
 #define PHASE_LOSS              (0)
 #define NO_PHASE_LOSS           (1)
 
+#define PHASE_R                 (1)
+#define PHASE_B                 (0)
+
 #define DS_BUFFER_SIZE          (12)
 
-#define NO_REV                  (0x00)
+#define CYCLE_COUNT             (30)
+#define PH_DETECT_CYCLE_COUNT   (31)
+
+#define CALC_Vrms_CYCLE         (38)
+
+#define NO_PHASE_REV            (0x00)
 #define PHASE_REV               (0x01)
 
 #define PHASE_SHIFT_MIN_TIME    (0.003)
 #define PHASE_SHIFT_MAX_TIME    (0.008)
+
+#define SWITCH_PRESSED          (SW_GetValue() == false)
 
 /******************************************************************************/
 /*                                                                            */
@@ -59,14 +78,14 @@
 
 /* DATA STREAMER FIELDS */
 typedef struct{
-	uint8_t start_of_frame;         // 1B
-	uint16_t RsignalData;           // 2B
-	uint16_t YsignalData;           // 2B
-	uint16_t BsignalData;           // 2B
-	uint8_t phaseReversalFlag;      // 1B
-	uint8_t phaseLossFlag[3];       // 3B
-	uint8_t Opfreq;                 // 1B
-	uint8_t end_of_frame;           // 1B
+	uint8_t start_of_frame;                // 1B
+	uint16_t RsignalData;                  // 2B
+	uint16_t YsignalData;                  // 2B
+	uint16_t BsignalData;                  // 2B
+	uint8_t phaseReversalFlag;             // 1B
+	uint8_t phaseLossFlag[CHANNEL_COUNT];  // 3B
+	uint8_t Opfreq;                        // 1B
+	uint8_t end_of_frame;                  // 1B
 }DataStreamer_st;
 
 /* DATA STREAMER FRAME CREATION */
@@ -97,8 +116,21 @@ uint16_t targetedSamples = 35;              // Number of samples in two cycles
 uint16_t ADC_Results_L[4] = {EMPTY_BUFFER}; // Buffer to save register value of ADRESL
 
 float Vrms[3] = {0.00};                     // Buffer containing Root Mean Square value of each phase
-float frequencyValue = DEFAULT_FREQ1;       // Frequency of input signal
+float frequencyValue = DEFAULT_FREQ_50Hz;   // Frequency of input signal
 float line_voltage[3] = {EMPTY_BUFFER};     // Line voltage of each phase
+
+volatile uint8_t phaseRSignalCounter;
+volatile uint8_t phaseBSignalCounter;
+volatile uint8_t timer2CounterValue;
+
+volatile uint8_t  timer4OverflowFlag = 0;           
+volatile uint32_t refreshCount       = 0;
+volatile uint16_t timer4OvfCnt       = 0;
+
+volatile uint8_t ZCD_Int_flag[3];            
+volatile uint8_t PhaseLossFlag[CHANNEL_COUNT];       // For 3 ZCD solution (64 pin controller)
+
+DataStreamerFrame_u dataStreamerFrame_u;
 
 /******************************************************************************/
 /*                                                                            */
@@ -117,46 +149,6 @@ float line_voltage[3] = {EMPTY_BUFFER};     // Line voltage of each phase
  * @return None.
  */
 void application(void);
-
-/**
- * void getRphaseStatus(void)
- * 
- * @brief API to get the status of R-Phase.
- * 
- * @param None.
- * @return None.
- */
-void getRphaseStatus(void);
-
-/**
- * void getGphaseStatus(void)
- * 
- * @brief API to get the status of G-Phase.
- * 
- * @param None.
- * @return None.
- */
-void getGphaseStatus(void);
-
-/**
- * void getBphaseStatus(void)
- * 
- * @brief API to get the status of B-Phase.
- * 
- * @param None.
- * @return None.
- */
-void getBphaseStatus(void);
-
-/**
- * void read3PhaseSignal(void)
- * 
- * @brief API to read 3 phase signals (R Y B) through ADC channels.
- * 
- * @param None.
- * @return None.
- */
-void read3PhaseSignal(void);
 
 /**
  * void threePhaseAmplitudeMax(void)
@@ -199,26 +191,6 @@ void defaultSignalGeneration(void);
 void readSwToSelectFrequency(void);
 
 /**
- * void phaseLossDetectionStatus(void)
- * 
- * @brief API to identify phase loss on R G B phases.
- * 
- * @param None.
- * @return None.
- */
-void phaseLossDetectionStatus(void);
-
-/**
- * void createDataStreamProtocolAndSend(void)
- * 
- * @brief API to create data buffer for data streamer and transmit the buffer to data visualizer.
- * 
- * @param None.
- * @return None.
- */
-void createDataStreamProtocolAndSend(void);
-
-/**
  * void frequencySelectionCallBack(void)
  * 
  * @brief API to select the frequency of input signal for the PSD application.
@@ -227,62 +199,6 @@ void createDataStreamProtocolAndSend(void);
  * @return None.
  */
 void frequencySelectionCallBack(uint8_t userFreqSelection);
-
-/**
- * void sendString(uint8_t *data,uint16_t length)
- * 
- * @brief API to send string via UART.
- * 
- * @param data   - data string to transmit 
- *        length - size of the string 
- * @return None.
- */
-void sendString(uint8_t *data,uint16_t length);
-
-/**
- * void sineWaveGeneration(uint8_t clickSelect, float inputFreq, float inputPhase)
- * 
- * @brief API to generate sine wave on selected SPI module
- * 
- * @param clickSelect - SPI client (waveform click) number
- *        inputFreq   - frequency of the signal
- *        inputPhase  - phase of the signal
- * @return None.
- */
-void sineWaveGeneration(uint8_t clickSelect, float inputFreq, float inputPhase);
-
-/**
- * float calculateVrms(void)
- * 
- * @brief API to calculate the Vrms for the requested phase.
- * 
- * @param None.
- * @return return calculated RMS voltage. 
- */
-float calculateVrms(void);
-
-/**
- * uint8_t phaseReversalDetection(void)
- * 
- * @brief API to calculate the time between the two phases and update the phase reversal flag 
- *        field in the data streamer buffer.
- * 
- * @param None.
- * @return 0 - No Phase Reversal
- *         1 - Phase reversal detected
- */
-uint8_t phaseReversalDetection(void);
-
-/**
- * uint8_t emulatorTaskProcess(uint8_t status)
- * 
- * @brief API to process user commands for changing the characteristics of generated wave 
- *        for demonstrating the application functionalities. 
- * 
- * @param status - Status of sine wave.
- * @return 1 or 0 depending on the status.
- */
-uint8_t emulatorTaskProcess(uint8_t status);
 
 /**
  * uint16_t waveformAproxPhasecalculation(float phase)
@@ -313,5 +229,25 @@ uint32_t waveformAproxFreqcalculation(float frequency);
  * @return None.
  */
 void TMR4_UserInterruptHandler(void);
+
+/**
+ * void ZCD1_UserInterruptHandler(void)
+ * 
+ * @brief User defined ZCD1 interrupt handler.
+ * 
+ * @param None.
+ * @return None.
+ */
+void ZCD1_UserInterruptHandler(void);
+
+/**
+ * void ZCD2_UserInterruptHandler(void)
+ * 
+ * @brief User defined ZCD2 interrupt handler.
+ * 
+ * @param None.
+ * @return None.
+ */
+void ZCD2_UserInterruptHandler(void);
 
 #endif	/* XC_APPLICATION_H */

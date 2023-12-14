@@ -37,12 +37,7 @@
 #include <xc.h>
 #include "../zcd1.h"
 #include "../../system/system.h"
-
-volatile uint8_t ZCD_Int_flag[3];                               // Application variables 
-volatile uint8_t PhaseLossFlag[3];                              // For 3 ZCD solution (64 pin controller)
-
-extern volatile uint8_t flagRSignal;
-extern volatile uint16_t timerCounterValue[3];                  // uint16_t array for 64 pin controller timer calculation
+#include "../../../application.h"
 
 /**
   Section: ZCD1 Module APIs
@@ -73,10 +68,7 @@ void ZCD1_ISR(void)
     // Clear the ZCD1 interrupt flag
     PIR2bits.ZCD1IF = 0;
     // User handled code
-    TMR2_Write(0);
-    ZCD_Int_flag[0]  = 1;
-	PhaseLossFlag[0] = 1;
-    flagRSignal = 0;
+    ZCD1_UserInterruptHandler();
 }
 
 /**
