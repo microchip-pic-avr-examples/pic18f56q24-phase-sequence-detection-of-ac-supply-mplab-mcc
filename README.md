@@ -36,8 +36,9 @@ The following tools are used for this demo application:
 
 The following steps explain how to set the hardware for the Three-Phase sequence detection, using the PIC18F56Q24 microcontroller. The figure below shows the hardware setup used for the application demo. 
 * Insert the PIC18F56Q24 Curiosity Nano board in the slot designed for MCU board.
-<br>**Note:** When inserting the Curiosity Nano board, the user can use the Curiosity Nano Base markings for better orientation.
-<br>
+
+**Note:** When inserting the Curiosity Nano board, the user can use the Curiosity Nano Base markings for better orientation.
+
 * Insert the three Waveform Clicks in the three mikroBUS<sup>TM</sup> slots available on the Curiosity Nano Base board
 * Connect the output of the Waveform Clicks to the respective microcontroller I/O pins using SMA connectors
 * Connect the SMA output connectors to inputs of ADC and ZCD as given below (It has only two ZCDs which are connected to Click 1 and Click 3)
