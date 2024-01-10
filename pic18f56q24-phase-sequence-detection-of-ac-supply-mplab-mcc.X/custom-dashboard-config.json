@@ -32,7 +32,8 @@
                         "label-13",
                         "segment-1",
                         "label-7",
-                        "label-8"
+                        "label-8",
+                        "label-9"
                     ]
                 }
             },
@@ -406,8 +407,8 @@
             "segment-1": {
                 "type": "segment",
                 "position": {
-                    "left": "279.609px",
-                    "top": "733.609px",
+                    "left": "276.609px",
+                    "top": "732.609px",
                     "width": "30px",
                     "height": "22px"
                 },
@@ -461,6 +462,25 @@
                     },
                     "label": {
                         "value": "OUTPUT STATUS"
+                    }
+                }
+            },
+            "label-9": {
+                "type": "label",
+                "position": {
+                    "left": "311.609px",
+                    "top": "732.609px"
+                },
+                "config": {
+                    "style": {
+                        "fontWeight": "normal",
+                        "fontStyle": "normal",
+                        "alignItems": "flex-start",
+                        "textAlign": "left",
+                        "fontSize": "18px"
+                    },
+                    "label": {
+                        "value": "Hz"
                     }
                 }
             }
