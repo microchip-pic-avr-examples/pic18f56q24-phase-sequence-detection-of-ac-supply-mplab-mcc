@@ -4,7 +4,7 @@
     "content": {
         "metaDataVersion": "1.3.0",
         "name": "com.microchip.mcu8.mplabx.project.pic18f56q24-phase-sequence-detection-of-ac-supply-mplab-mcc",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "displayName": "Phase Sequence Detection of AC Supply using PIC18F56Q24 Microcontroller",
         "projectName": "pic18f56q24-phase-sequence-detection-of-ac-supply-mplab-mcc",
         "shortDescription": "This application demo highlights usage of ZCD and ADCC peripherals of 8-bit PIC MCUs in the applications that require phase sequence and phase loss detection on a three phase AC supply. Compatible PIC18-Q24 family of MCUs are: PIC18F56/55/46/45/26/25/24Q24.",
