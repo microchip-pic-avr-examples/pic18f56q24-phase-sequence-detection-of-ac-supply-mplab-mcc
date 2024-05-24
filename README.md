@@ -8,6 +8,7 @@ The PIC18-Q24 microcontroller family showcases a Multi-Voltage I/O (MVIO) interf
 This application demonstrator is developed using MPLAB<sup>®</sup> X IDE. It showcases the phase sequence detection, phase reversal and phase loss detection on the emulated three phase AC supply using the PIC18F56Q24 microcontroller.
 
 ## Related Documentation
+* [AN5345 - Phase Sequence Detection of Three-Phase A/C Supply](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ApplicationNotes/ApplicationNotes/AN5345-Phase-Sequence-Detection-Three-Phase-AC-DS00005345.pdf)
 
 ## Software Used
 
@@ -15,20 +16,20 @@ This application uses MPLAB<sup>®</sup> X IDE compiler and graphical code gener
 
 The following tools are used for this demo application:
 
-* [MPLAB® X IDE](https://www.microchip.com/mplab/mplab-x-ide) v6.15 or newer
-* [XC8 compiler](https://www.microchip.com/mplab/compilers) v2.45 or newer
-* [MPLAB® Code Configurator(MCC)](https://www.microchip.com/mplab/mplab-code-configurator) v5.3.7 or newer
+* [MPLAB® X IDE](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_PIC18-Q24&utm_content=pic18f56q24-phase-sequence-detection-of-ac-supply-mplab-mcc-github&utm_bu=MCU08) v6.20 or newer
+* [XC8 compiler](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_PIC18-Q24&utm_content=pic18f56q24-phase-sequence-detection-of-ac-supply-mplab-mcc-github&utm_bu=MCU08) v2.46 or newer
+* [MPLAB® Code Configurator(MCC)](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_PIC18-Q24&utm_content=pic18f56q24-phase-sequence-detection-of-ac-supply-mplab-mcc-github&utm_bu=MCU08) v5.3.7 or newer
 * [Microchip PIC18F-Q Series Device Support](https://packs.download.microchip.com) 1.23.425 or newer
-* [Data Visualizer](https://www.microchip.com/en-us/tools-resources/debug/mplab-data-visualizer) v1.3.1331 or newer
+* [Data Visualizer](https://www.microchip.com/en-us/tools-resources/debug/mplab-data-visualizer?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_PIC18-Q24&utm_content=pic18f56q24-phase-sequence-detection-of-ac-supply-mplab-mcc-github&utm_bu=MCU08) v1.3.1665 or newer
 * ADC MCC Melody Driver 1.0.6
 * SPI MCC Melody Driver 5.0.0
 * TMR2 MCC Melody Driver 4.0.18
-* UART MCC Melody Driver 7.1.1
+* UART MCC Melody Driver 7.1.2
 * ZCD MCC Melody Driver 4.0.10
 
 ## Hardware Used
 
-* [PIC18F56Q24 Curiosity Nano board](https://www.microchip.com/en-us/development-tool/EV01E86A")
+* [PIC18F56Q24 Curiosity Nano board](https://www.microchip.com/en-us/development-tool/EV01E86A?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_PIC18-Q24&utm_content=pic18f56q24-phase-sequence-detection-of-ac-supply-mplab-mcc-github&utm_bu=MCU08)
 * [Curiosity Nano base for Click boards](https://www.microchip.com/developmenttools/ProductDetails/AC164162)
 * [Waveform Clicks](https://www.mikroe.com/waveform-click)
 * SMA male cable 
